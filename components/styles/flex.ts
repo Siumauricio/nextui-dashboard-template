@@ -44,6 +44,9 @@ export const Flex = styled('div', {
          stretch: {
             alignItems: 'stretch',
          },
+         between: {
+            alignItems: 'space-between',
+         },
       },
       wrap: {
          wrap: {
