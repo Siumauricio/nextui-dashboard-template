@@ -1,7 +1,11 @@
 import React from 'react';
 import {Svg} from '../styles/svg';
 
-export const Community = () => {
+interface Props {
+   color?: string;
+}
+
+export const Community = ({color = 'white'}: Props) => {
    return (
       <Svg
          xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +16,7 @@ export const Community = () => {
          css={{
             'cursor': 'pointer',
             '& path': {
-               fill: '$blue700',
+               fill: color,
             },
          }}
       >
