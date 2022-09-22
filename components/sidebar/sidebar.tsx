@@ -38,7 +38,12 @@ export const SidebarWrapper = () => {
                css={{height: '100%'}}
             >
                <Sidebar.Body className="body sidebar">
-                  <SidebarItem title="Home" icon={<HomeIcon />} isActive />
+                  <SidebarItem
+                     title="Home"
+                     icon={<HomeIcon />}
+                     isActive
+                     href="/"
+                  />
                   <SidebarMenu title="Main Menu">
                      <SidebarItem title="Payments" icon={<PaymentsIcon />} />
                      <CollapseItems
@@ -46,7 +51,11 @@ export const SidebarWrapper = () => {
                         items={['Banks Accounts', 'Credit Cards', 'Loans']}
                         title="Balances"
                      />
-                     <SidebarItem title="Accounts" icon={<AccountsIcon />} />
+                     <SidebarItem
+                        title="Accounts"
+                        icon={<AccountsIcon />}
+                        href="accounts"
+                     />
                      <SidebarItem title="Customers" icon={<CustomersIcon />} />
                      <SidebarItem title="Products" icon={<ProductsIcon />} />
                      <SidebarItem title="Reports" icon={<ReportsIcon />} />

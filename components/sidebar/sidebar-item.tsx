@@ -1,4 +1,5 @@
-import {Text} from '@nextui-org/react';
+import {Text, Link} from '@nextui-org/react';
+import NextLink from 'next/link';
 import React from 'react';
 import {Flex} from '../styles/flex';
 
@@ -6,9 +7,10 @@ interface Props {
    title: string;
    icon: React.ReactNode;
    isActive?: boolean;
+   href?: string;
 }
 
-export const SidebarItem = ({icon, title, isActive}: Props) => {
+export const SidebarItem = ({icon, title, isActive, href = ''}: Props) => {
    return (
       <Flex
          css={{
@@ -35,16 +37,24 @@ export const SidebarItem = ({icon, title, isActive}: Props) => {
          align={'center'}
       >
          {icon}
-         <Text
+         {/* <Text
             span
             weight={'normal'}
             size={'$base'}
             css={{
                color: '$accents9',
             }}
-         >
-            {title}
-         </Text>
+         > */}
+         <NextLink href={href}>
+            <Link
+               css={{
+                  color: '$accents9',
+               }}
+            >
+               {title}
+            </Link>
+         </NextLink>
+         {/* </Text> */}
       </Flex>
    );
 };
