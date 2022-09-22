@@ -6,54 +6,14 @@ import dynamic from 'next/dynamic';
 import {Flex} from '../styles/flex';
 import {PaymentsIcon} from '../icons/sidebar/payments-icon';
 import {Community} from '../icons/community';
+// import {Steam} from '../charts/steam';
 
-const ReactApexChart = dynamic(() => import('react-apexcharts'), {
-   ssr: false,
-});
-
-const state: ApexCharts.ApexOptions['series'] = [
+const Chart = dynamic(
+   () => import('../charts/steam').then((mod) => mod.Steam),
    {
-      name: 'series1',
-      data: [31, 40, 28, 51, 42, 109, 100],
-   },
-];
-const options: ApexCharts.ApexOptions = {
-   chart: {
-      height: 350,
-      type: 'area',
-      toolbar: {
-         show: false,
-         tools: {
-            zoomin: false,
-            zoomout: false,
-         },
-      },
-   },
-
-   grid: {
-      borderColor: 'var(--nextui-colors-border)',
-   },
-   dataLabels: {
-      enabled: false,
-   },
-   xaxis: {
-      type: 'datetime',
-      categories: [
-         '2018-09-19T00:00:00.000Z',
-         '2018-09-19T01:30:00.000Z',
-         '2018-09-19T02:30:00.000Z',
-         '2018-09-19T03:30:00.000Z',
-         '2018-09-19T04:30:00.000Z',
-         '2018-09-19T05:30:00.000Z',
-         '2018-09-19T06:30:00.000Z',
-      ],
-   },
-   tooltip: {
-      x: {
-         format: 'dd/MM/yy HH:mm',
-      },
-   },
-};
+      ssr: false,
+   }
+);
 
 const pictureUsers = [
    'https://i.pravatar.cc/150?u=a042581f4e29026024d',
@@ -67,7 +27,8 @@ export const Content = () => (
    <Flex
       css={{
          'gap': '$8',
-         'pt': '$10',
+         'py': '$10',
+         'height': '100%',
          'flexWrap': 'wrap',
          '@lg': {
             flexWrap: 'nowrap',
@@ -80,7 +41,7 @@ export const Content = () => (
             'px': '$12',
             'mt': '$8',
             '@xsMax': {px: '$10'},
-            'gap': '$6',
+            'gap': '$12',
          }}
          direction={'column'}
       >
@@ -332,39 +293,41 @@ export const Content = () => (
                </Card>
             </Flex>
          </Box>
-
-         <Text
-            h3
-            css={{
-               'textAlign': 'center',
-               '@lg': {
-                  textAlign: 'inherit',
-               },
-            }}
-         >
-            Statistics
-         </Text>
-         <Box
-            css={{
-               width: '100%',
-               boxShadow: '$lg',
-               borderRadius: '$2xl',
-               bg: '$accents0',
-               px: '$10',
-            }}
-         >
-            <ReactApexChart
-               width={'100%'}
-               options={options}
-               series={state}
-               type="area"
-               height={350}
-            />
+         <Box>
+            <Text
+               h3
+               css={{
+                  'textAlign': 'center',
+                  '@lg': {
+                     textAlign: 'inherit',
+                  },
+               }}
+            >
+               Statistics
+            </Text>
+            <Box
+               css={{
+                  width: '100%',
+                  backgroundColor: '$accents0',
+                  boxShadow: '$lg',
+                  borderRadius: '$2xl',
+                  px: '$10',
+                  py: '$10',
+               }}
+            >
+               <Chart />
+            </Box>
          </Box>
-
-         <Spacer y={1} />
       </Flex>
-      <Box css={{'px': '$12', 'mt': '$8', '@xsMax': {px: '$10'}, 'gap': '$6'}}>
+      <Box
+         css={{
+            'px': '$12',
+            'mt': '$8',
+            '@xsMax': {px: '$10'},
+            'gap': '$6',
+            'overflow': 'hidden',
+         }}
+      >
          <Text
             h3
             css={{
@@ -394,7 +357,7 @@ export const Content = () => (
          >
             <Card
                css={{
-                  mw: '350px',
+                  mw: '375px',
                   bg: '$accents0',
                   height: '275px',
                   borderRadius: '$xl',
@@ -457,72 +420,141 @@ export const Content = () => (
             <Card
                css={{
                   mw: '375px',
-                  height: '320px',
+                  height: 'auto',
                   bg: '$accents0',
                   borderRadius: '$xl',
-                  alignContent: 'center',
-                  justifyContent: 'center',
+                  // alignContent: 'start',
+                  justifyContent: 'start',
                   px: '$6',
                }}
             >
                <Card.Body css={{py: '$10'}}>
-                  <Flex css={{gap: '$5'}}>
-                     <Community color={'$accents9'} />
-                     <Flex direction={'column'}>
-                        <Text span>Balance Insurance</Text>
-                        <Text span size={'$xs'}>
-                           1311 Cars
+                  <Flex css={{gap: '$5'}} justify={'center'}>
+                     <Text h3 css={{textAlign: 'center'}}>
+                        Latest Users
+                     </Text>
+                  </Flex>
+                  <Flex
+                     css={{gap: '$6', py: '$4'}}
+                     // align={'center'}
+
+                     direction={'column'}
+                  >
+                     <Flex css={{gap: '$6'}} align={'center'} justify="between">
+                        <Avatar
+                           size="lg"
+                           pointer
+                           src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                           bordered
+                           color="gradient"
+                           stacked
+                        />
+                        <Text span size={'$base'} weight={'semibold'}>
+                           Jose Perez
+                        </Text>
+                        <Text span css={{color: '$green600'}} size={'$xs'}>
+                           4500 USD
+                        </Text>
+                        <Text span css={{color: '$accents8'}} size={'$xs'}>
+                           9/20/2021
                         </Text>
                      </Flex>
-                  </Flex>
-                  <Flex css={{gap: '$6', py: '$4'}} align={'center'}>
-                     <Text span size={'$xl'} weight={'semibold'}>
-                        $3,910
-                     </Text>
-                     <Text span css={{color: '$red600'}} size={'$xs'}>
-                        + 4.5%
-                     </Text>
-                  </Flex>
-                  <Flex css={{gap: '$12'}} align={'center'}>
-                     <Box>
-                        <Text
-                           span
-                           size={'$xs'}
-                           css={{color: '$red600'}}
-                           weight={'semibold'}
-                        >
-                           {'↓'}
+
+                     <Flex css={{gap: '$6'}} align={'center'} justify="between">
+                        <Avatar
+                           size="lg"
+                           pointer
+                           src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                           bordered
+                           color="gradient"
+                           stacked
+                        />
+                        <Text span size={'$base'} weight={'semibold'}>
+                           Andrew Steven
                         </Text>
-                        <Text span size={'$xs'}>
-                           100,930 USD
+                        <Text span css={{color: '$green600'}} size={'$xs'}>
+                           4500 USD
                         </Text>
-                     </Box>
-                     <Box>
-                        <Text
-                           span
-                           size={'$xs'}
-                           css={{color: '$red600'}}
-                           weight={'semibold'}
-                        >
-                           {'↑'}
+                        <Text span css={{color: '$accents8'}} size={'$xs'}>
+                           9/20/2021
                         </Text>
-                        <Text span size={'$xs'}>
-                           54,120 USD
+                     </Flex>
+                     <Flex css={{gap: '$6'}} align={'center'} justify="between">
+                        <Avatar
+                           size="lg"
+                           pointer
+                           src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                           bordered
+                           color="gradient"
+                           stacked
+                        />
+                        <Text span size={'$base'} weight={'semibold'}>
+                           Ruben Garcia
                         </Text>
-                     </Box>
-                     <Box>
-                        <Text
-                           span
-                           size={'$xs'}
-                           css={{color: '$green600'}}
-                           weight={'semibold'}
-                        >
-                           {'⭐'}
+                        <Text span css={{color: '$green600'}} size={'$xs'}>
+                           1500 USD
                         </Text>
-                        <Text span size={'$xs'}>
-                           125 VIP
+                        <Text span css={{color: '$accents8'}} size={'$xs'}>
+                           2/20/2022
                         </Text>
-                     </Box>
+                     </Flex>
+                     <Flex css={{gap: '$6'}} align={'center'} justify="between">
+                        <Avatar
+                           size="lg"
+                           pointer
+                           src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                           bordered
+                           color="gradient"
+                           stacked
+                        />
+                        <Text span size={'$base'} weight={'semibold'}>
+                           Perla Garcia
+                        </Text>
+                        <Text span css={{color: '$green600'}} size={'$xs'}>
+                           200 USD
+                        </Text>
+                        <Text span css={{color: '$accents8'}} size={'$xs'}>
+                           3/20/2022
+                        </Text>
+                     </Flex>
+                     <Flex css={{gap: '$6'}} align={'center'} justify="between">
+                        <Avatar
+                           size="lg"
+                           pointer
+                           src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                           bordered
+                           color="gradient"
+                           stacked
+                        />
+                        <Text span size={'$base'} weight={'semibold'}>
+                           Mathew Funez
+                        </Text>
+                        <Text span css={{color: '$green600'}} size={'$xs'}>
+                           2444 USD
+                        </Text>
+                        <Text span css={{color: '$accents8'}} size={'$xs'}>
+                           5/20/2022
+                        </Text>
+                     </Flex>
+                     <Flex css={{gap: '$6'}} align={'center'} justify="between">
+                        <Avatar
+                           size="lg"
+                           pointer
+                           src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                           bordered
+                           color="gradient"
+                           stacked
+                        />
+                        <Text span size={'$base'} weight={'semibold'}>
+                           Carlos Diaz
+                        </Text>
+                        <Text span css={{color: '$green600'}} size={'$xs'}>
+                           3000 USD
+                        </Text>
+                        <Text span css={{color: '$accents8'}} size={'$xs'}>
+                           12/20/2022
+                        </Text>
+                     </Flex>
                   </Flex>
                </Card.Body>
             </Card>
