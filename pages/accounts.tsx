@@ -22,15 +22,27 @@ const accounts = () => {
          direction={'column'}
       >
          <Text h3>All Accounts</Text>
-         <Flex css={{gap: '$8'}} align={'center'} justify={'between'}>
-            <Flex css={{gap: '$6'}} align={'center'}>
-               <Input css={{width: '410px', maxW: '100%'}} />
+         <Flex
+            css={{gap: '$8'}}
+            align={'center'}
+            justify={'between'}
+            wrap={'wrap'}
+         >
+            <Flex
+               css={{
+                  'gap': '$6',
+                  'flexWrap': 'wrap',
+                  '@sm': {flexWrap: 'nowrap'},
+               }}
+               align={'center'}
+            >
+               <Input css={{width: '100%', maxW: '410px'}} />
                <SettingsIcon />
                <TrashIcon />
                <InfoIcon />
                <DotsIcon />
             </Flex>
-            <Flex direction={'row'} css={{gap: '$6'}}>
+            <Flex direction={'row'} css={{gap: '$6'}} wrap={'wrap'}>
                <AddUser />
                <Button auto shadow>
                   Import
