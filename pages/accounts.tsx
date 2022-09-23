@@ -2,10 +2,10 @@ import {Button, Container, Input, Text} from '@nextui-org/react';
 import React from 'react';
 import {AddUser} from '../components/accounts/add-user';
 import {TableWrapper} from '../components/accounts/table';
-import {DotsIcon} from '../components/icons/dots-icon';
-import {InfoIcon} from '../components/icons/info-icon';
+import {DotsIcon} from '../components/icons/accounts/dots-icon';
+import {InfoIcon} from '../components/icons/accounts/info-icon';
 import {SettingsIcon} from '../components/icons/sidebar/settings-icon';
-import {TrashIcon} from '../components/icons/trash-icon';
+import {TrashIcon} from '../components/icons/accounts/trash-icon';
 import {Flex} from '../components/styles/flex';
 
 const accounts = () => {
@@ -36,7 +36,10 @@ const accounts = () => {
                }}
                align={'center'}
             >
-               <Input css={{width: '100%', maxW: '410px'}} />
+               <Input
+                  css={{width: '100%', maxW: '410px'}}
+                  placeholder="Search users"
+               />
                <SettingsIcon />
                <TrashIcon />
                <InfoIcon />

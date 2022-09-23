@@ -1,7 +1,5 @@
 import type {NextPage} from 'next';
-import Head from 'next/head';
-import {Layout} from '../components/layout/layout';
-import {Content} from '../components/navbar/content';
+import {Content} from '../components/home/content';
 
 const Home: NextPage = () => {
    return <Content />;
