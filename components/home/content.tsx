@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 import {Flex} from '../styles/flex';
 import {PaymentsIcon} from '../icons/sidebar/payments-icon';
 import {Community} from '../icons/community';
-import {TableWrapper} from '../accounts/table';
+import {TableWrapper} from '../table/table';
 // import {Steam} from '../charts/steam';
 import NextLink from 'next/link';
 const Chart = dynamic(

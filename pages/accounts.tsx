@@ -1,7 +1,7 @@
 import {Button, Container, Input, Text} from '@nextui-org/react';
 import React from 'react';
 import {AddUser} from '../components/accounts/add-user';
-import {TableWrapper} from '../components/accounts/table';
+import {TableWrapper} from '../components/table/table';
 import {DotsIcon} from '../components/icons/accounts/dots-icon';
 import {InfoIcon} from '../components/icons/accounts/info-icon';
 import {SettingsIcon} from '../components/icons/sidebar/settings-icon';
