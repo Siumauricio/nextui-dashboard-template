@@ -53,16 +53,16 @@ export const SidebarItem = ({
                align={'center'}
             >
                {icon}
-               {/* <Text
-            span
-            weight={'normal'}
-            size={'$base'}
-            css={{
-               color: '$accents9',
-            }}
-         > */}
-
-               {title}
+               <Text
+                  span
+                  weight={'normal'}
+                  size={'$base'}
+                  css={{
+                     color: '$accents9',
+                  }}
+               >
+                  {title}
+               </Text>
             </Flex>
          </Link>
       </NextLink>

@@ -44,7 +44,6 @@ export const SidebarWrapper = () => {
 
          <Sidebar collapsed={collapsed}>
             <Sidebar.Header>
-               <AcmeIcon />
                <CompaniesDropdown />
             </Sidebar.Header>
             <Flex
@@ -62,6 +61,13 @@ export const SidebarWrapper = () => {
                   />
                   <SidebarMenu title="Main Menu">
                      <SidebarItem
+                        isActive={2 === activeElement}
+                        onClick={() => updateActiveElement(2)}
+                        title="Accounts"
+                        icon={<AccountsIcon />}
+                        href="accounts"
+                     />
+                     <SidebarItem
                         isActive={1 === activeElement}
                         onClick={() => updateActiveElement(1)}
                         title="Payments"
@@ -72,13 +78,7 @@ export const SidebarWrapper = () => {
                         items={['Banks Accounts', 'Credit Cards', 'Loans']}
                         title="Balances"
                      />
-                     <SidebarItem
-                        isActive={2 === activeElement}
-                        onClick={() => updateActiveElement(2)}
-                        title="Accounts"
-                        icon={<AccountsIcon />}
-                        href="accounts"
-                     />
+
                      <SidebarItem
                         isActive={3 === activeElement}
                         onClick={() => updateActiveElement(3)}

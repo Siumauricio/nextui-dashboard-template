@@ -1,17 +1,29 @@
 import {Dropdown, Navbar, Text} from '@nextui-org/react';
-import React from 'react';
+import React, {useState} from 'react';
 import {AcmeIcon} from '../icons/acme-icon';
 import {AcmeLogo} from '../icons/acmelogo';
 import {BottomIcon} from '../icons/sidebar/bottom-icon';
 import {Box} from '../styles/box';
 import {Flex} from '../styles/flex';
 
+interface Company {
+   name: string;
+   location: string;
+   logo: React.ReactNode;
+}
+
 export const CompaniesDropdown = () => {
+   const [company, setCompany] = useState<Company>({
+      name: 'Acme Co.',
+      location: 'Palo Alto, CA',
+      logo: <AcmeIcon />,
+   });
    return (
       <Dropdown placement="bottom-right" borderWeight={'extrabold'}>
          <Dropdown.Trigger css={{cursor: 'pointer'}}>
             <Box>
                <Flex align={'center'} css={{gap: '$7'}}>
+                  {company.logo}
                   <Box>
                      <Text
                         h3
@@ -24,7 +36,7 @@ export const CompaniesDropdown = () => {
                            mb: '-$5',
                         }}
                      >
-                        Acme Co.{' '}
+                        {company.name}
                      </Text>
                      <Text
                         span
@@ -32,7 +44,7 @@ export const CompaniesDropdown = () => {
                         size={'$xs'}
                         css={{color: '$accents8'}}
                      >
-                        Palo Alto, CA
+                        {company.location}
                      </Text>
                   </Box>
                   <BottomIcon />
@@ -40,6 +52,36 @@ export const CompaniesDropdown = () => {
             </Box>
          </Dropdown.Trigger>
          <Dropdown.Menu
+            onAction={(e) => {
+               if (e === '1') {
+                  setCompany({
+                     name: 'Facebook',
+                     location: 'San Fransico, CA',
+                     logo: <AcmeIcon />,
+                  });
+               }
+               if (e === '2') {
+                  setCompany({
+                     name: 'Instagram',
+                     location: 'Austin, Tx',
+                     logo: <AcmeLogo />,
+                  });
+               }
+               if (e === '3') {
+                  setCompany({
+                     name: 'Twitter',
+                     location: 'Brooklyn, NY',
+                     logo: <AcmeIcon />,
+                  });
+               }
+               if (e === '4') {
+                  setCompany({
+                     name: 'Acme Co.',
+                     location: 'Palo Alto, CA',
+                     logo: <AcmeIcon />,
+                  });
+               }
+            }}
             aria-label="Avatar Actions"
             css={{
                '$$dropdownMenuWidth': '340px',
@@ -80,6 +122,13 @@ export const CompaniesDropdown = () => {
                   description="Brooklyn, NY"
                >
                   Twitter
+               </Dropdown.Item>
+               <Dropdown.Item
+                  key="4"
+                  icon={<AcmeIcon />}
+                  description="Palo Alto, CA"
+               >
+                  Acme Co.
                </Dropdown.Item>
             </Dropdown.Section>
          </Dropdown.Menu>
