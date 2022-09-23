@@ -1,8 +1,8 @@
 import {Col, Row, Table, User, Text, Tooltip} from '@nextui-org/react';
 import React from 'react';
-import {DeleteIcon} from '../icons/delete-icon';
-import {EditIcon} from '../icons/edit-icon';
-import {EyeIcon} from '../icons/eye-icon';
+import {DeleteIcon} from '../icons/table/delete-icon';
+import {EditIcon} from '../icons/table/edit-icon';
+import {EyeIcon} from '../icons/table/eye-icon';
 import {columns, users} from './data';
 import {IconButton, StyledBadge} from './table.styled';
 
@@ -121,7 +121,7 @@ export const TableWrapper = () => {
             shadow
             noMargin
             align="center"
-            rowsPerPage={5}
+            rowsPerPage={8}
             onPageChange={(page) => console.log({page})}
          />
       </Table>

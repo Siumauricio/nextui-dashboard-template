@@ -2,7 +2,7 @@ import {Dropdown, Navbar, Text} from '@nextui-org/react';
 import React from 'react';
 import {AcmeIcon} from '../icons/acme-icon';
 import {AcmeLogo} from '../icons/acmelogo';
-import {BottomIcon} from '../icons/bottom-icon';
+import {BottomIcon} from '../icons/sidebar/bottom-icon';
 import {Box} from '../styles/box';
 import {Flex} from '../styles/flex';
 
