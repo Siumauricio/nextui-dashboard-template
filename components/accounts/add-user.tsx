@@ -56,6 +56,7 @@ export const AddUser = () => {
                      <Input
                         label="First Name"
                         bordered
+                        clearable
                         fullWidth
                         size="lg"
                         placeholder="First Name"
