@@ -6,12 +6,10 @@ const state: Props['series'] = [
    {
       name: 'Series1',
       data: [31, 40, 28, 51, 42, 109, 100],
-      // color: 'var(--nextui-colors-red600)',
    },
    {
       name: 'Series2',
       data: [11, 32, 45, 32, 34, 52, 41],
-      // color: 'var(--nextui-colors-blue600)',
    },
 ];
 

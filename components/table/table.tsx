@@ -1,4 +1,4 @@
-import {Table, User} from '@nextui-org/react';
+import {Table} from '@nextui-org/react';
 import React from 'react';
 import {Box} from '../styles/box';
 import {columns, users} from './data';
