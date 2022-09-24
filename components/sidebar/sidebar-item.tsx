@@ -1,6 +1,7 @@
 import {Text, Link} from '@nextui-org/react';
 import NextLink from 'next/link';
-import React, {useState} from 'react';
+import React from 'react';
+import {useSidebarContext} from '../layout/layout-context';
 import {Flex} from '../styles/flex';
 
 interface Props {
@@ -8,16 +9,16 @@ interface Props {
    icon: React.ReactNode;
    isActive?: boolean;
    href?: string;
-   onClick?: () => void;
 }
 
-export const SidebarItem = ({
-   icon,
-   title,
-   isActive,
-   href = '',
-   onClick,
-}: Props) => {
+export const SidebarItem = ({icon, title, isActive, href = ''}: Props) => {
+   const {collapsed, setCollapsed} = useSidebarContext();
+
+   const handleClick = () => {
+      if (window.innerWidth < 768) {
+         setCollapsed();
+      }
+   };
    return (
       <NextLink href={href}>
          <Link
@@ -27,7 +28,7 @@ export const SidebarItem = ({
             }}
          >
             <Flex
-               onClick={onClick}
+               onClick={handleClick}
                css={{
                   'gap': '$6',
                   'width': '100%',

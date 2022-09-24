@@ -1,9 +1,8 @@
-import React, {useReducer, useState} from 'react';
+import React, {useState} from 'react';
 import {Box} from '../styles/box';
 import {Sidebar} from './sidebar.styles';
 import {Avatar, Tooltip} from '@nextui-org/react';
 import {Flex} from '../styles/flex';
-import {AcmeIcon} from '../icons/acme-icon';
 import {CompaniesDropdown} from './companies-dropdown';
 import {HomeIcon} from '../icons/sidebar/home-icon';
 import {PaymentsIcon} from '../icons/sidebar/payments-icon';
@@ -20,16 +19,13 @@ import {SidebarItem} from './sidebar-item';
 import {SidebarMenu} from './sidebar-menu';
 import {FilterIcon} from '../icons/sidebar/filter-icon';
 import {useSidebarContext} from '../layout/layout-context';
+import {ChangeLogIcon} from '../icons/sidebar/changelog-icon';
+import {useRouter} from 'next/router';
 
 export const SidebarWrapper = () => {
+   const router = useRouter();
    const {collapsed, setCollapsed} = useSidebarContext();
-   const [activeElement, setActiveElement] = useState(0);
 
-   const updateActiveElement = (id: number) => {
-      if (activeElement !== id) {
-         setActiveElement(activeElement !== id ? id : -1);
-      }
-   };
    return (
       <Box
          as="aside"
@@ -55,21 +51,18 @@ export const SidebarWrapper = () => {
                   <SidebarItem
                      title="Home"
                      icon={<HomeIcon />}
-                     isActive={0 === activeElement}
-                     onClick={() => updateActiveElement(0)}
+                     isActive={router.pathname === '/'}
                      href="/"
                   />
                   <SidebarMenu title="Main Menu">
                      <SidebarItem
-                        isActive={2 === activeElement}
-                        onClick={() => updateActiveElement(2)}
+                        isActive={router.pathname === '/accounts'}
                         title="Accounts"
                         icon={<AccountsIcon />}
                         href="accounts"
                      />
                      <SidebarItem
-                        isActive={1 === activeElement}
-                        onClick={() => updateActiveElement(1)}
+                        isActive={router.pathname === '/payments'}
                         title="Payments"
                         icon={<PaymentsIcon />}
                      />
@@ -80,20 +73,17 @@ export const SidebarWrapper = () => {
                      />
 
                      <SidebarItem
-                        isActive={3 === activeElement}
-                        onClick={() => updateActiveElement(3)}
+                        isActive={router.pathname === '/customers'}
                         title="Customers"
                         icon={<CustomersIcon />}
                      />
                      <SidebarItem
-                        isActive={4 === activeElement}
-                        onClick={() => updateActiveElement(4)}
+                        isActive={router.pathname === '/products'}
                         title="Products"
                         icon={<ProductsIcon />}
                      />
                      <SidebarItem
-                        isActive={5 === activeElement}
-                        onClick={() => updateActiveElement(5)}
+                        isActive={router.pathname === '/reports'}
                         title="Reports"
                         icon={<ReportsIcon />}
                      />
@@ -101,22 +91,27 @@ export const SidebarWrapper = () => {
 
                   <SidebarMenu title="General">
                      <SidebarItem
-                        isActive={6 === activeElement}
-                        onClick={() => updateActiveElement(6)}
+                        isActive={router.pathname === '/developers'}
                         title="Developers"
                         icon={<DevIcon />}
                      />
                      <SidebarItem
-                        isActive={7 === activeElement}
-                        onClick={() => updateActiveElement(7)}
+                        isActive={router.pathname === '/view'}
                         title="View Test Data"
                         icon={<ViewIcon />}
                      />
                      <SidebarItem
-                        isActive={8 === activeElement}
-                        onClick={() => updateActiveElement(8)}
+                        isActive={router.pathname === '/settings'}
                         title="Settings"
                         icon={<SettingsIcon />}
+                     />
+                  </SidebarMenu>
+
+                  <SidebarMenu title="Updates">
+                     <SidebarItem
+                        isActive={router.pathname === '/changelog'}
+                        title="Changelog"
+                        icon={<ChangeLogIcon />}
                      />
                   </SidebarMenu>
                </Sidebar.Body>
