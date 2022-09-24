@@ -1,4 +1,3 @@
-import {Button} from '@nextui-org/react';
 import React from 'react';
 import {Box} from '../styles/box';
 import Chart, {Props} from 'react-apexcharts';
@@ -87,13 +86,7 @@ export const Steam = () => {
          <Box
             css={{
                width: '100%',
-               // overflow: 'hidden',
-               // minHeight: '450px',
                zIndex: 5,
-               // // 'background': '$accents0',
-               // padding: '.5rem',
-               // borderRadius: '0.5rem',
-               // 'boxShadow': '0 30px 40px rgba(0,0,0,.1)',
             }}
          >
             <div id="chart">

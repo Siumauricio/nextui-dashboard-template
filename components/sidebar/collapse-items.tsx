@@ -106,32 +106,3 @@ export const CollapseItems = ({icon, items, title}: Props) => {
       </Flex>
    );
 };
-// onChange={(e) => {
-//    if (item.items.length > 0) {
-//       console.log(e);
-//    }
-//    e.preventDefault();
-// }}
-// showArrow={item.items.length > 0}
-// css={{
-//    marginBottom: '0.125rem',
-//    ...(item.items.length === 0
-//       ? {
-//            '& .nextui-collapse-content': {
-//               padding: '0px',
-//            },
-//         }
-//       : {
-//            '& .nextui-collapse-content': {
-//               marginTop: '$2',
-//               padding: '0px',
-//            },
-//         }),
-//    // '&:hover': {
-//    //    backgroundColor: '$gray200',
-//    // },
-
-//    py: '0.5rem',
-//    px: '0.75rem',
-//    borderRadius: '$md',
-// }}

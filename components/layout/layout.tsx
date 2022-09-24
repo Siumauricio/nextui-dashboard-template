@@ -1,8 +1,7 @@
-import {Text} from '@nextui-org/react';
 import React from 'react';
+import {useLockedBody} from '../hooks/useBodyLock';
 import {NavbarWrapper} from '../navbar/navbar';
 import {SidebarWrapper} from '../sidebar/sidebar';
-import {Box} from '../styles/box';
 import {SidebarContext} from './layout-context';
 import {WrapperLayout} from './layout.styles';
 
@@ -12,9 +11,10 @@ interface Props {
 
 export const Layout = ({children}: Props) => {
    const [sidebarOpen, setSidebarOpen] = React.useState(false);
-
+   const [_, setLocked] = useLockedBody(false);
    const handleToggleSidebar = () => {
       setSidebarOpen(!sidebarOpen);
+      setLocked(!sidebarOpen);
    };
 
    return (
@@ -26,15 +26,7 @@ export const Layout = ({children}: Props) => {
       >
          <WrapperLayout>
             <SidebarWrapper />
-            {/* <Box
-               css={{
-                  width: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-               }}
-            > */}
             <NavbarWrapper>{children}</NavbarWrapper>
-            {/* </Box> */}
          </WrapperLayout>
       </SidebarContext.Provider>
    );
