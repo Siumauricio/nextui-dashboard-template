@@ -1,14 +1,7 @@
-import {
-   Button,
-   Checkbox,
-   Divider,
-   Input,
-   Modal,
-   Row,
-   Text,
-} from '@nextui-org/react';
+import {Button, Divider, Input, Modal, Text} from '@nextui-org/react';
 import React from 'react';
 import {Flex} from '../styles/flex';
+import {IconButton} from '../table/table.styled';
 
 export const AddUser = () => {
    const [visible, setVisible] = React.useState(false);
@@ -21,7 +14,7 @@ export const AddUser = () => {
 
    return (
       <div>
-         <Button auto shadow onClick={handler}>
+         <Button auto onClick={handler}>
             Add User
          </Button>
          <Modal
