@@ -1,14 +1,16 @@
 import React from 'react';
-
-import {Text, Spacer, Card, Row, Button, Avatar, Link} from '@nextui-org/react';
+import {Text, Link} from '@nextui-org/react';
 import {Box} from '../styles/box';
 import dynamic from 'next/dynamic';
 import {Flex} from '../styles/flex';
-import {PaymentsIcon} from '../icons/sidebar/payments-icon';
-import {Community} from '../icons/community';
 import {TableWrapper} from '../table/table';
-// import {Steam} from '../charts/steam';
 import NextLink from 'next/link';
+import {CardBalance1} from './card-balance1';
+import {CardBalance2} from './card-balance2';
+import {CardBalance3} from './card-balance3';
+import {CardAgents} from './card-agents';
+import {CardTransactions} from './card-transactions';
+
 const Chart = dynamic(
    () => import('../charts/steam').then((mod) => mod.Steam),
    {
@@ -16,24 +18,19 @@ const Chart = dynamic(
    }
 );
 
-const pictureUsers = [
-   'https://i.pravatar.cc/150?u=a042581f4e29026024d',
-   'https://i.pravatar.cc/150?u=a042581f4e29026704d',
-   'https://i.pravatar.cc/150?u=a04258114e29026702d',
-   'https://i.pravatar.cc/150?u=a048581f4e29026701d',
-   'https://i.pravatar.cc/150?u=a092581d4ef9026700d',
-];
-
 export const Content = () => (
    <Box css={{overflow: 'hidden', height: '100%'}}>
       <Flex
          css={{
             'gap': '$8',
-            'pt': '$10',
+            'pt': '$5',
             'height': 'fit-content',
             'flexWrap': 'wrap',
             '@lg': {
                flexWrap: 'nowrap',
+            },
+            '@sm': {
+               pt: '$10',
             },
          }}
          justify={'center'}
@@ -47,6 +44,7 @@ export const Content = () => (
             }}
             direction={'column'}
          >
+            {/* Card Section Top */}
             <Box>
                <Text
                   h3
@@ -70,231 +68,13 @@ export const Content = () => (
                   }}
                   direction={'row'}
                >
-                  <Card
-                     css={{
-                        mw: '375px',
-                        bg: '$blue600',
-                        borderRadius: '$xl',
-                        px: '$6',
-                     }}
-                  >
-                     <Card.Body css={{py: '$10'}}>
-                        <Flex css={{gap: '$5'}}>
-                           <Community />
-                           <Flex direction={'column'}>
-                              <Text span css={{color: 'white'}}>
-                                 Auto Insurance
-                              </Text>
-                              <Text span css={{color: 'white'}} size={'$xs'}>
-                                 1311 Cars
-                              </Text>
-                           </Flex>
-                        </Flex>
-                        <Flex css={{gap: '$6', py: '$4'}} align={'center'}>
-                           <Text
-                              span
-                              size={'$xl'}
-                              css={{color: 'white'}}
-                              weight={'semibold'}
-                           >
-                              $45,910
-                           </Text>
-                           <Text span css={{color: '$green600'}} size={'$xs'}>
-                              + 4.5%
-                           </Text>
-                        </Flex>
-                        <Flex css={{gap: '$12'}} align={'center'}>
-                           <Box>
-                              <Text
-                                 span
-                                 size={'$xs'}
-                                 css={{color: '$green600'}}
-                                 weight={'semibold'}
-                              >
-                                 {'↓'}
-                              </Text>
-                              <Text span size={'$xs'} css={{color: '$white'}}>
-                                 100,930 USD
-                              </Text>
-                           </Box>
-                           <Box>
-                              <Text
-                                 span
-                                 size={'$xs'}
-                                 css={{color: '$red600'}}
-                                 weight={'semibold'}
-                              >
-                                 {'↑'}
-                              </Text>
-                              <Text span size={'$xs'} css={{color: '$white'}}>
-                                 54,120 USD
-                              </Text>
-                           </Box>
-                           <Box>
-                              <Text
-                                 span
-                                 size={'$xs'}
-                                 css={{color: '$green600'}}
-                                 weight={'semibold'}
-                              >
-                                 {'⭐'}
-                              </Text>
-                              <Text span size={'$xs'} css={{color: '$white'}}>
-                                 125 VIP
-                              </Text>
-                           </Box>
-                        </Flex>
-                     </Card.Body>
-                  </Card>
-                  <Card
-                     css={{
-                        mw: '375px',
-                        bg: '$accents0',
-                        borderRadius: '$xl',
-                        px: '$6',
-                     }}
-                  >
-                     <Card.Body css={{py: '$10'}}>
-                        <Flex css={{gap: '$5'}}>
-                           <Community color={'$accents9'} />
-                           <Flex direction={'column'}>
-                              <Text span css={{color: ''}}>
-                                 Healt Insurance
-                              </Text>
-                              <Text span size={'$xs'}>
-                                 +2400 People
-                              </Text>
-                           </Flex>
-                        </Flex>
-                        <Flex css={{gap: '$6', py: '$4'}} align={'center'}>
-                           <Text span size={'$xl'} weight={'semibold'}>
-                              $12,138
-                           </Text>
-                           <Text span css={{color: '$red600'}} size={'$xs'}>
-                              + 4.5%
-                           </Text>
-                        </Flex>
-                        <Flex css={{gap: '$12'}} align={'center'}>
-                           <Box>
-                              <Text
-                                 span
-                                 size={'$xs'}
-                                 css={{color: '$green600'}}
-                                 weight={'semibold'}
-                              >
-                                 {'↓'}
-                              </Text>
-                              <Text span size={'$xs'}>
-                                 11,930 USD
-                              </Text>
-                           </Box>
-                           <Box>
-                              <Text
-                                 span
-                                 size={'$xs'}
-                                 css={{color: '$red600'}}
-                                 weight={'semibold'}
-                              >
-                                 {'↑'}
-                              </Text>
-                              <Text span size={'$xs'}>
-                                 54,120 USD
-                              </Text>
-                           </Box>
-                           <Box>
-                              <Text
-                                 span
-                                 size={'$xs'}
-                                 css={{color: '$green600'}}
-                                 weight={'semibold'}
-                              >
-                                 {'⭐'}
-                              </Text>
-                              <Text span size={'$xs'}>
-                                 150 VIP
-                              </Text>
-                           </Box>
-                        </Flex>
-                     </Card.Body>
-                  </Card>
-                  <Card
-                     css={{
-                        mw: '375px',
-                        bg: '$green600',
-                        borderRadius: '$xl',
-                        px: '$6',
-                     }}
-                  >
-                     <Card.Body css={{py: '$10'}}>
-                        <Flex css={{gap: '$5'}}>
-                           <Community />
-                           <Flex direction={'column'}>
-                              <Text span css={{color: 'white'}}>
-                                 Balance Insurance
-                              </Text>
-                              <Text span css={{color: 'white'}} size={'$xs'}>
-                                 1311 Cars
-                              </Text>
-                           </Flex>
-                        </Flex>
-                        <Flex css={{gap: '$6', py: '$4'}} align={'center'}>
-                           <Text
-                              span
-                              size={'$xl'}
-                              css={{color: 'white'}}
-                              weight={'semibold'}
-                           >
-                              $3,910
-                           </Text>
-                           <Text span css={{color: '$red600'}} size={'$xs'}>
-                              + 4.5%
-                           </Text>
-                        </Flex>
-                        <Flex css={{gap: '$12'}} align={'center'}>
-                           <Box>
-                              <Text
-                                 span
-                                 size={'$xs'}
-                                 css={{color: '$red600'}}
-                                 weight={'semibold'}
-                              >
-                                 {'↓'}
-                              </Text>
-                              <Text span size={'$xs'} css={{color: '$white'}}>
-                                 100,930 USD
-                              </Text>
-                           </Box>
-                           <Box>
-                              <Text
-                                 span
-                                 size={'$xs'}
-                                 css={{color: '$red600'}}
-                                 weight={'semibold'}
-                              >
-                                 {'↑'}
-                              </Text>
-                              <Text span size={'$xs'} css={{color: '$white'}}>
-                                 54,120 USD
-                              </Text>
-                           </Box>
-                           <Box>
-                              <Text
-                                 span
-                                 size={'$xs'}
-                                 css={{color: '$green600'}}
-                                 weight={'semibold'}
-                              >
-                                 {'⭐'}
-                              </Text>
-                              <Text span size={'$xs'} css={{color: '$white'}}>
-                                 125 VIP
-                              </Text>
-                           </Box>
-                        </Flex>
-                     </Card.Body>
-                  </Card>
+                  <CardBalance1 />
+                  <CardBalance2 />
+                  <CardBalance3 />
                </Flex>
             </Box>
+
+            {/* Chart */}
             <Box>
                <Text
                   h3
@@ -321,6 +101,8 @@ export const Content = () => (
                </Box>
             </Box>
          </Flex>
+
+         {/* Left Section */}
          <Box
             css={{
                'px': '$12',
@@ -358,236 +140,13 @@ export const Content = () => (
                   },
                }}
             >
-               <Card
-                  css={{
-                     mw: '375px',
-                     bg: '$accents0',
-                     height: '275px',
-                     borderRadius: '$xl',
-                     alignContent: 'center',
-                     justifyContent: 'center',
-                     px: '$6',
-                  }}
-               >
-                  <Card.Body css={{py: '$10', gap: '$4'}}>
-                     <Flex
-                        css={{
-                           width: '100%',
-                        }}
-                        justify={'center'}
-                     >
-                        <Flex
-                           align={'center'}
-                           direction={'row'}
-                           justify={'center'}
-                           css={{
-                              width: '150px',
-                              border: '2.5px dashed $border',
-                              borderRadius: '$base',
-                           }}
-                        >
-                           {'⭐'}
-                           <Box>
-                              <Flex direction={'column'}>
-                                 <Text h3 css={{margin: 0}}>
-                                    Agents
-                                 </Text>
-                              </Flex>
-                           </Box>
-                        </Flex>
-                     </Flex>
-                     <Flex css={{gap: '$6', py: '$4'}} align={'center'}>
-                        <Text span size={'$xs'}>
-                           Meet your agenda and see their ranks to get the best
-                           results
-                        </Text>
-                     </Flex>
-                     <Flex css={{pt: '$4'}} align={'center'} justify={'center'}>
-                        <Avatar.Group count={12}>
-                           {pictureUsers.map((url, index) => (
-                              <Avatar
-                                 key={index}
-                                 size="lg"
-                                 pointer
-                                 src={url}
-                                 bordered
-                                 color="gradient"
-                                 stacked
-                              />
-                           ))}
-                        </Avatar.Group>
-                     </Flex>
-                  </Card.Body>
-               </Card>
-
-               <Card
-                  css={{
-                     mw: '375px',
-                     height: 'auto',
-                     bg: '$accents0',
-                     borderRadius: '$xl',
-                     // alignContent: 'start',
-                     justifyContent: 'start',
-                     px: '$6',
-                  }}
-               >
-                  <Card.Body css={{py: '$10'}}>
-                     <Flex css={{gap: '$5'}} justify={'center'}>
-                        <Text h3 css={{textAlign: 'center'}}>
-                           Latest Transactions
-                        </Text>
-                     </Flex>
-                     <Flex
-                        css={{gap: '$6', py: '$4'}}
-                        // align={'center'}
-
-                        direction={'column'}
-                     >
-                        <Flex
-                           css={{gap: '$6'}}
-                           align={'center'}
-                           justify="between"
-                        >
-                           <Avatar
-                              size="lg"
-                              pointer
-                              src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-                              bordered
-                              color="gradient"
-                              stacked
-                           />
-                           <Text span size={'$base'} weight={'semibold'}>
-                              Jose Perez
-                           </Text>
-                           <Text span css={{color: '$green600'}} size={'$xs'}>
-                              4500 USD
-                           </Text>
-                           <Text span css={{color: '$accents8'}} size={'$xs'}>
-                              9/20/2021
-                           </Text>
-                        </Flex>
-
-                        <Flex
-                           css={{gap: '$6'}}
-                           align={'center'}
-                           justify="between"
-                        >
-                           <Avatar
-                              size="lg"
-                              pointer
-                              src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-                              bordered
-                              color="gradient"
-                              stacked
-                           />
-                           <Text span size={'$base'} weight={'semibold'}>
-                              Andrew Steven
-                           </Text>
-                           <Text span css={{color: '$green600'}} size={'$xs'}>
-                              4500 USD
-                           </Text>
-                           <Text span css={{color: '$accents8'}} size={'$xs'}>
-                              9/20/2021
-                           </Text>
-                        </Flex>
-                        <Flex
-                           css={{gap: '$6'}}
-                           align={'center'}
-                           justify="between"
-                        >
-                           <Avatar
-                              size="lg"
-                              pointer
-                              src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-                              bordered
-                              color="gradient"
-                              stacked
-                           />
-                           <Text span size={'$base'} weight={'semibold'}>
-                              Ruben Garcia
-                           </Text>
-                           <Text span css={{color: '$green600'}} size={'$xs'}>
-                              1500 USD
-                           </Text>
-                           <Text span css={{color: '$accents8'}} size={'$xs'}>
-                              2/20/2022
-                           </Text>
-                        </Flex>
-                        <Flex
-                           css={{gap: '$6'}}
-                           align={'center'}
-                           justify="between"
-                        >
-                           <Avatar
-                              size="lg"
-                              pointer
-                              src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-                              bordered
-                              color="gradient"
-                              stacked
-                           />
-                           <Text span size={'$base'} weight={'semibold'}>
-                              Perla Garcia
-                           </Text>
-                           <Text span css={{color: '$green600'}} size={'$xs'}>
-                              200 USD
-                           </Text>
-                           <Text span css={{color: '$accents8'}} size={'$xs'}>
-                              3/20/2022
-                           </Text>
-                        </Flex>
-                        <Flex
-                           css={{gap: '$6'}}
-                           align={'center'}
-                           justify="between"
-                        >
-                           <Avatar
-                              size="lg"
-                              pointer
-                              src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-                              bordered
-                              color="gradient"
-                              stacked
-                           />
-                           <Text span size={'$base'} weight={'semibold'}>
-                              Mathew Funez
-                           </Text>
-                           <Text span css={{color: '$green600'}} size={'$xs'}>
-                              2444 USD
-                           </Text>
-                           <Text span css={{color: '$accents8'}} size={'$xs'}>
-                              5/20/2022
-                           </Text>
-                        </Flex>
-                        <Flex
-                           css={{gap: '$6'}}
-                           align={'center'}
-                           justify="between"
-                        >
-                           <Avatar
-                              size="lg"
-                              pointer
-                              src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-                              bordered
-                              color="gradient"
-                              stacked
-                           />
-                           <Text span size={'$base'} weight={'semibold'}>
-                              Carlos Diaz
-                           </Text>
-                           <Text span css={{color: '$green600'}} size={'$xs'}>
-                              3000 USD
-                           </Text>
-                           <Text span css={{color: '$accents8'}} size={'$xs'}>
-                              12/20/2022
-                           </Text>
-                        </Flex>
-                     </Flex>
-                  </Card.Body>
-               </Card>
+               <CardAgents />
+               <CardTransactions />
             </Flex>
          </Box>
       </Flex>
+
+      {/* Table Latest Users */}
       <Flex
          direction={'column'}
          justify={'center'}
@@ -626,7 +185,6 @@ export const Content = () => (
                </Link>
             </NextLink>
          </Flex>
-
          <TableWrapper />
       </Flex>
    </Box>
