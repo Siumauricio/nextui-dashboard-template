@@ -2,10 +2,10 @@ import {styled} from '@nextui-org/react';
 
 export const SidebarWrapper = styled('div', {
    'backgroundColor': '$background',
-   'transition': 'margin-left 0.3s ease',
+   'transition': 'transform 0.2s ease',
    'height': '100%',
    'position': 'fixed',
-   'marginLeft': '-100%',
+   'transform': 'translateX(-100%)',
    'width': '16rem',
    'flexShrink': 0,
    'zIndex': '202',
@@ -13,11 +13,8 @@ export const SidebarWrapper = styled('div', {
    '&::-webkit-scrollbar': {
       display: 'none',
    },
-
-   // 'translateX': '-100%',
    'borderRight': '1px solid $border',
    'flexDirection': 'column',
-   // 'p': '$8',
    'py': '$10',
    'px': '$6',
    '@md': {
@@ -25,12 +22,14 @@ export const SidebarWrapper = styled('div', {
       display: 'flex',
       position: 'static',
       height: '100vh',
+      transform: 'translateX(0)',
    },
    'variants': {
       collapsed: {
          true: {
             display: 'inherit',
             marginLeft: '0 ',
+            transform: 'translateX(0)',
          },
       },
    },
