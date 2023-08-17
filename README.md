@@ -4,6 +4,7 @@ You can deploy here directly to vercel [![Deploy with Vercel](https://vercel.com
 
 
 V1 Version Stitches https://v1-nextui-dashboard-template.vercel.app/
+V1 Code: https://github.com/Siumauricio/nextui-dashboard-template/tree/v1
 
 This is a template for NextJS and NextUI. 
 
