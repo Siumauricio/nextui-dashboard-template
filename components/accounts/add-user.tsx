@@ -1,125 +1,61 @@
-import {Button, Divider, Input, Modal, Text} from '@nextui-org/react';
-import React from 'react';
-import {Flex} from '../styles/flex';
+import {
+  Button,
+  Input,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  useDisclosure,
+} from "@nextui-org/react";
+import React from "react";
 
 export const AddUser = () => {
-   const [visible, setVisible] = React.useState(false);
-   const handler = () => setVisible(true);
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-   const closeHandler = () => {
-      setVisible(false);
-      console.log('closed');
-   };
-
-   return (
-      <div>
-         <Button auto onClick={handler}>
-            Add User
-         </Button>
-         <Modal
-            closeButton
-            aria-labelledby="modal-title"
-            width="600px"
-            open={visible}
-            onClose={closeHandler}
-         >
-            <Modal.Header css={{justifyContent: 'start'}}>
-               <Text id="modal-title" h4>
-                  Add new user
-               </Text>
-            </Modal.Header>
-            <Divider css={{my: '$5'}} />
-            <Modal.Body css={{py: '$10'}}>
-               <Flex
-                  direction={'column'}
-                  css={{
-                     'flexWrap': 'wrap',
-                     'gap': '$8',
-                     '@lg': {flexWrap: 'nowrap', gap: '$12'},
-                  }}
-               >
-                  <Flex
-                     css={{
-                        'gap': '$10',
-                        'flexWrap': 'wrap',
-                        '@lg': {flexWrap: 'nowrap'},
-                     }}
-                  >
-                     <Input
-                        label="First Name"
-                        bordered
-                        clearable
-                        fullWidth
-                        size="lg"
-                        placeholder="First Name"
-                     />
-                     <Input
-                        label="Last Name"
-                        clearable
-                        bordered
-                        fullWidth
-                        size="lg"
-                        placeholder="Last Name"
-                     />
-                  </Flex>
-
-                  <Flex
-                     css={{
-                        'gap': '$10',
-                        'flexWrap': 'wrap',
-                        '@lg': {flexWrap: 'nowrap'},
-                     }}
-                  >
-                     <Input
-                        label="Email"
-                        clearable
-                        bordered
-                        fullWidth
-                        size="lg"
-                        placeholder="Email"
-                     />
-                     <Input
-                        label="Phone Number"
-                        clearable
-                        bordered
-                        fullWidth
-                        size="lg"
-                        placeholder="Phone Number"
-                     />
-                  </Flex>
-                  <Flex
-                     css={{
-                        'gap': '$10',
-                        'flexWrap': 'wrap',
-                        '@lg': {flexWrap: 'nowrap'},
-                     }}
-                  >
-                     <Input
-                        label="Department"
-                        clearable
-                        bordered
-                        fullWidth
-                        size="lg"
-                        placeholder="Department"
-                     />
-                     <Input
-                        label="Company"
-                        clearable
-                        bordered
-                        fullWidth
-                        size="lg"
-                        placeholder="Company"
-                     />
-                  </Flex>
-               </Flex>
-            </Modal.Body>
-            <Divider css={{my: '$5'}} />
-            <Modal.Footer>
-               <Button auto onClick={closeHandler}>
+  return (
+    <div>
+      <>
+        <Button onPress={onOpen} color="primary">
+          Add User
+        </Button>
+        <Modal
+          isOpen={isOpen}
+          onOpenChange={onOpenChange}
+          placement="top-center"
+        >
+          <ModalContent>
+            {(onClose) => (
+              <>
+                <ModalHeader className="flex flex-col gap-1">
                   Add User
-               </Button>
-            </Modal.Footer>
-         </Modal>
-      </div>
-   );
+                </ModalHeader>
+                <ModalBody>
+                  <Input label="Email" variant="bordered" />
+                  <Input label="First Name" variant="bordered" />
+                  <Input label="Last Name" variant="bordered" />
+                  <Input label="Phone Number" variant="bordered" />
+
+                  <Input label="Password" type="password" variant="bordered" />
+                  <Input
+                    label="Confirm Password"
+                    type="password"
+                    variant="bordered"
+                  />
+                </ModalBody>
+                <ModalFooter>
+                  <Button color="danger" variant="flat" onClick={onClose}>
+                    Close
+                  </Button>
+                  <Button color="primary" onPress={onClose}>
+                    Add User
+                  </Button>
+                </ModalFooter>
+              </>
+            )}
+          </ModalContent>
+        </Modal>
+      </>
+    </div>
+  );
 };

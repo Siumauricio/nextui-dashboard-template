@@ -1,150 +1,75 @@
-import {Avatar, Card, Text} from '@nextui-org/react';
-import React from 'react';
-import {Box} from '../styles/box';
-import {Flex} from '../styles/flex';
+import { Avatar, Card, CardBody } from "@nextui-org/react";
+import React from "react";
+
+const items = [
+  {
+    name: "Jose Perez",
+    picture: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+    amount: "4500 USD",
+    date: "9/20/2021",
+  },
+  {
+    name: "Jose Perez",
+    picture: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+    amount: "4500 USD",
+    date: "9/20/2021",
+  },
+  {
+    name: "Jose Perez",
+    picture: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+    amount: "4500 USD",
+    date: "9/20/2021",
+  },
+  {
+    name: "Jose Perez",
+    picture: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+    amount: "4500 USD",
+    date: "9/20/2021",
+  },
+  {
+    name: "Jose Perez",
+    picture: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+    amount: "4500 USD",
+    date: "9/20/2021",
+  },
+];
 
 export const CardTransactions = () => {
-   return (
-      <Card
-         css={{
-            mw: '375px',
-            height: 'auto',
-            bg: '$accents0',
-            borderRadius: '$xl',
-            // alignContent: 'start',
-            justifyContent: 'start',
-            px: '$6',
-         }}
-      >
-         <Card.Body css={{py: '$10'}}>
-            <Flex css={{gap: '$5'}} justify={'center'}>
-               <Text h3 css={{textAlign: 'center'}}>
-                  Latest Transactions
-               </Text>
-            </Flex>
-            <Flex
-               css={{gap: '$6', py: '$4'}}
-               // align={'center'}
+  return (
+    <Card className=" bg-default-50 rounded-xl shadow-md px-3">
+      <CardBody className="py-5 gap-4">
+        <div className="flex gap-2.5 justify-center">
+          <div className="flex flex-col border-dashed border-2 border-divider py-2 px-6 rounded-xl">
+            <span className="text-default-900 text-xl font-semibold">
+              Latest Transactions
+            </span>
+          </div>
+        </div>
 
-               direction={'column'}
-            >
-               <Flex css={{gap: '$6'}} align={'center'} justify="between">
-                  <Avatar
-                     size="lg"
-                     pointer
-                     src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-                     bordered
-                     color="gradient"
-                     stacked
-                  />
-                  <Text span size={'$base'} weight={'semibold'}>
-                     Jose Perez
-                  </Text>
-                  <Text span css={{color: '$green600'}} size={'$xs'}>
-                     4500 USD
-                  </Text>
-                  <Text span css={{color: '$accents8'}} size={'$xs'}>
-                     9/20/2021
-                  </Text>
-               </Flex>
+        <div className="flex flex-col gap-6 ">
+          {items.map((item) => (
+            <div key={item.name} className="grid grid-cols-4 w-full">
+              <div className="w-full">
+                <Avatar
+                  isBordered
+                  color="secondary"
+                  src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                />
+              </div>
 
-               <Flex css={{gap: '$6'}} align={'center'} justify="between">
-                  <Avatar
-                     size="lg"
-                     pointer
-                     src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-                     bordered
-                     color="gradient"
-                     stacked
-                  />
-                  <Text span size={'$base'} weight={'semibold'}>
-                     Andrew Steven
-                  </Text>
-                  <Text span css={{color: '$green600'}} size={'$xs'}>
-                     4500 USD
-                  </Text>
-                  <Text span css={{color: '$accents8'}} size={'$xs'}>
-                     9/20/2021
-                  </Text>
-               </Flex>
-               <Flex css={{gap: '$6'}} align={'center'} justify="between">
-                  <Avatar
-                     size="lg"
-                     pointer
-                     src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-                     bordered
-                     color="gradient"
-                     stacked
-                  />
-                  <Text span size={'$base'} weight={'semibold'}>
-                     Ruben Garcia
-                  </Text>
-                  <Text span css={{color: '$green600'}} size={'$xs'}>
-                     1500 USD
-                  </Text>
-                  <Text span css={{color: '$accents8'}} size={'$xs'}>
-                     2/20/2022
-                  </Text>
-               </Flex>
-               <Flex css={{gap: '$6'}} align={'center'} justify="between">
-                  <Avatar
-                     size="lg"
-                     pointer
-                     src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-                     bordered
-                     color="gradient"
-                     stacked
-                  />
-                  <Text span size={'$base'} weight={'semibold'}>
-                     Perla Garcia
-                  </Text>
-                  <Text span css={{color: '$green600'}} size={'$xs'}>
-                     200 USD
-                  </Text>
-                  <Text span css={{color: '$accents8'}} size={'$xs'}>
-                     3/20/2022
-                  </Text>
-               </Flex>
-               <Flex css={{gap: '$6'}} align={'center'} justify="between">
-                  <Avatar
-                     size="lg"
-                     pointer
-                     src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-                     bordered
-                     color="gradient"
-                     stacked
-                  />
-                  <Text span size={'$base'} weight={'semibold'}>
-                     Mathew Funez
-                  </Text>
-                  <Text span css={{color: '$green600'}} size={'$xs'}>
-                     2444 USD
-                  </Text>
-                  <Text span css={{color: '$accents8'}} size={'$xs'}>
-                     5/20/2022
-                  </Text>
-               </Flex>
-               <Flex css={{gap: '$6'}} align={'center'} justify="between">
-                  <Avatar
-                     size="lg"
-                     pointer
-                     src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-                     bordered
-                     color="gradient"
-                     stacked
-                  />
-                  <Text span size={'$base'} weight={'semibold'}>
-                     Carlos Diaz
-                  </Text>
-                  <Text span css={{color: '$green600'}} size={'$xs'}>
-                     3000 USD
-                  </Text>
-                  <Text span css={{color: '$accents8'}} size={'$xs'}>
-                     12/20/2022
-                  </Text>
-               </Flex>
-            </Flex>
-         </Card.Body>
-      </Card>
-   );
+              <span className="text-default-900  font-semibold">
+                {item.name}
+              </span>
+              <div>
+                <span className="text-success text-xs">{item.amount}</span>
+              </div>
+              <div>
+                <span className="text-default-500 text-xs">{item.date}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </CardBody>
+    </Card>
+  );
 };

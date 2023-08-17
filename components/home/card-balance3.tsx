@@ -1,86 +1,48 @@
-import {Card, Text} from '@nextui-org/react';
-import React from 'react';
-import {Community} from '../icons/community';
-import {Box} from '../styles/box';
-import {Flex} from '../styles/flex';
+import { Card, CardBody } from "@nextui-org/react";
+import React from "react";
+import { Community } from "../icons/community";
 
 export const CardBalance3 = () => {
-   return (
-      <Card
-         css={{
-            mw: '375px',
-            bg: '$green600',
-            borderRadius: '$xl',
-            px: '$6',
-         }}
-      >
-         <Card.Body css={{py: '$10'}}>
-            <Flex css={{gap: '$5'}}>
-               <Community />
-               <Flex direction={'column'}>
-                  <Text span css={{color: 'white'}}>
-                     Balance Insurance
-                  </Text>
-                  <Text span css={{color: 'white'}} size={'$xs'}>
-                     1311 Cars
-                  </Text>
-               </Flex>
-            </Flex>
-            <Flex css={{gap: '$6', py: '$4'}} align={'center'}>
-               <Text
-                  span
-                  size={'$xl'}
-                  css={{color: 'white'}}
-                  weight={'semibold'}
-               >
-                  $3,910
-               </Text>
-               <Text span css={{color: '$red600'}} size={'$xs'}>
-                  + 4.5%
-               </Text>
-            </Flex>
-            <Flex css={{gap: '$12'}} align={'center'}>
-               <Box>
-                  <Text
-                     span
-                     size={'$xs'}
-                     css={{color: '$red600'}}
-                     weight={'semibold'}
-                  >
-                     {'↓'}
-                  </Text>
-                  <Text span size={'$xs'} css={{color: '$white'}}>
-                     100,930 USD
-                  </Text>
-               </Box>
-               <Box>
-                  <Text
-                     span
-                     size={'$xs'}
-                     css={{color: '$red600'}}
-                     weight={'semibold'}
-                  >
-                     {'↑'}
-                  </Text>
-                  <Text span size={'$xs'} css={{color: '$white'}}>
-                     54,120 USD
-                  </Text>
-               </Box>
-               <Box>
-                  <Text
-                     span
-                     size={'$xs'}
-                     css={{color: '$green600'}}
-                     weight={'semibold'}
-                  >
-                     {'⭐'}
-                  </Text>
-                  <Text span size={'$xs'} css={{color: '$white'}}>
-                     125 VIP
-                  </Text>
-               </Box>
-            </Flex>
-         </Card.Body>
-      </Card>
-   );
+  return (
+    <Card className="xl:max-w-sm bg-success rounded-xl shadow-md px-3 w-full">
+      <CardBody className="py-5">
+        <div className="flex gap-2.5">
+          <Community />
+          <div className="flex flex-col">
+            <span className="text-white">Card Insurance</span>
+            <span className="text-white text-xs">1311 Cars</span>
+          </div>
+        </div>
+        <div className="flex gap-2.5 py-2 items-center">
+          <span className="text-white text-xl font-semibold">$3,910</span>
+          <span className="text-danger text-xs">- 4.5%</span>
+        </div>
+        <div className="flex items-center gap-6">
+          <div>
+            <div>
+              <span className="font-semibold text-danger text-xs">{"↓"}</span>
+              <span className="text-xs">100,930</span>
+            </div>
+            <span className="text-white text-xs">USD</span>
+          </div>
+
+          <div>
+            <div>
+              <span className="font-semibold text-danger text-xs">{"↑"}</span>
+              <span className="text-xs">4,120</span>
+            </div>
+            <span className="text-white text-xs">USD</span>
+          </div>
+
+          <div>
+            <div>
+              <span className="font-semibold text-danger text-xs">{"⭐"}</span>
+              <span className="text-xs">125</span>
+            </div>
+            <span className="text-white text-xs">VIP</span>
+          </div>
+        </div>
+      </CardBody>
+    </Card>
+  );
 };

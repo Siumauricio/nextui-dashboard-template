@@ -1,34 +1,30 @@
-import React from 'react';
+import React from "react";
 
-interface Props {
-   size?: number;
-   fill?: string;
-   width?: number;
-   height?: number;
-}
-
-export const SearchIcon = ({
-   size,
-   fill,
-   width = 24,
-   height = 24,
-   ...props
-}: Props) => {
-   return (
-      <svg
-         fill="none"
-         height={size || height}
-         viewBox="0 0 24 24"
-         width={size || width}
-         {...props}
-      >
-         <path
-            d="M11.5 21a9.5 9.5 0 1 0 0-19 9.5 9.5 0 0 0 0 19ZM22 22l-2-2"
-            stroke={fill}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-         />
-      </svg>
-   );
+export const SearchIcon = () => {
+  return (
+    <svg
+      aria-hidden="true"
+      fill="none"
+      focusable="false"
+      height={18}
+      role="presentation"
+      viewBox="0 0 24 24"
+      width={18}
+    >
+      <path
+        className="stroke-default-400"
+        d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        className="stroke-default-400"
+        d="M22 22L20 20"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
 };

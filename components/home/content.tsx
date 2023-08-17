@@ -1,191 +1,68 @@
-import React from 'react';
-import {Text, Link} from '@nextui-org/react';
-import {Box} from '../styles/box';
-import dynamic from 'next/dynamic';
-import {Flex} from '../styles/flex';
-import {TableWrapper} from '../table/table';
-import NextLink from 'next/link';
-import {CardBalance1} from './card-balance1';
-import {CardBalance2} from './card-balance2';
-import {CardBalance3} from './card-balance3';
-import {CardAgents} from './card-agents';
-import {CardTransactions} from './card-transactions';
+import React from "react";
+import dynamic from "next/dynamic";
+import { TableWrapper } from "../table/table";
+import { CardBalance1 } from "./card-balance1";
+import { CardBalance2 } from "./card-balance2";
+import { CardBalance3 } from "./card-balance3";
+import { CardAgents } from "./card-agents";
+import { CardTransactions } from "./card-transactions";
+import { Link } from "@nextui-org/react";
+import NextLink from "next/link";
 
 const Chart = dynamic(
-   () => import('../charts/steam').then((mod) => mod.Steam),
-   {
-      ssr: false,
-   }
+  () => import("../charts/steam").then((mod) => mod.Steam),
+  {
+    ssr: false,
+  }
 );
 
 export const Content = () => (
-   <Box css={{overflow: 'hidden', height: '100%'}}>
-      <Flex
-         css={{
-            'gap': '$8',
-            'pt': '$5',
-            'height': 'fit-content',
-            'flexWrap': 'wrap',
-            '@lg': {
-               flexWrap: 'nowrap',
-            },
-            '@sm': {
-               pt: '$10',
-            },
-         }}
-         justify={'center'}
-      >
-         <Flex
-            css={{
-               'px': '$12',
-               'mt': '$8',
-               '@xsMax': {px: '$10'},
-               'gap': '$12',
-            }}
-            direction={'column'}
-         >
-            {/* Card Section Top */}
-            <Box>
-               <Text
-                  h3
-                  css={{
-                     'textAlign': 'center',
-                     '@sm': {
-                        textAlign: 'inherit',
-                     },
-                  }}
-               >
-                  Available Balance
-               </Text>
-               <Flex
-                  css={{
-                     'gap': '$10',
-                     'flexWrap': 'wrap',
-                     'justifyContent': 'center',
-                     '@sm': {
-                        flexWrap: 'nowrap',
-                     },
-                  }}
-                  direction={'row'}
-               >
-                  <CardBalance1 />
-                  <CardBalance2 />
-                  <CardBalance3 />
-               </Flex>
-            </Box>
+  <div className=" h-full">
+    <div className="flex justify-center gap-4 xl:gap-12 pt-3 px-4 lg:px-0  flex-wrap xl:flex-nowrap sm:pt-10 max-w-[90rem] mx-auto w-full">
+      <div className="mt-6  gap-6 flex flex-col w-full">
+        {/* Card Section Top */}
+        <div className="flex flex-col gap-2">
+          <h3 className="text-xl font-semibold">Available Balance</h3>
+          <div className="grid md:grid-cols-2 grid-cols-1 2xl:grid-cols-3 gap-5  justify-center w-full">
+            <CardBalance1 />
+            <CardBalance2 />
+            <CardBalance3 />
+          </div>
+        </div>
 
-            {/* Chart */}
-            <Box>
-               <Text
-                  h3
-                  css={{
-                     'textAlign': 'center',
-                     '@lg': {
-                        textAlign: 'inherit',
-                     },
-                  }}
-               >
-                  Statistics
-               </Text>
-               <Box
-                  css={{
-                     width: '100%',
-                     backgroundColor: '$accents0',
-                     boxShadow: '$lg',
-                     borderRadius: '$2xl',
-                     px: '$10',
-                     py: '$10',
-                  }}
-               >
-                  <Chart />
-               </Box>
-            </Box>
-         </Flex>
+        {/* Chart */}
+        <div className="h-full flex flex-col gap-2">
+          <h3 className="text-xl font-semibold">Statistics</h3>
+          <div className="w-full bg-default-50 shadow-lg rounded-2xl p-6 ">
+            <Chart />
+          </div>
+        </div>
+      </div>
 
-         {/* Left Section */}
-         <Box
-            css={{
-               'px': '$12',
-               'mt': '$8',
-               'height': 'fit-content',
-               '@xsMax': {px: '$10'},
-               'gap': '$6',
-               'overflow': 'hidden',
-            }}
-         >
-            <Text
-               h3
-               css={{
-                  'textAlign': 'center',
-                  '@lg': {
-                     textAlign: 'inherit',
-                  },
-               }}
-            >
-               Section
-            </Text>
-            <Flex
-               direction={'column'}
-               justify={'center'}
-               css={{
-                  'gap': '$8',
-                  'flexDirection': 'row',
-                  'flexWrap': 'wrap',
-                  '@sm': {
-                     flexWrap: 'nowrap',
-                  },
-                  '@lg': {
-                     flexWrap: 'nowrap',
-                     flexDirection: 'column',
-                  },
-               }}
-            >
-               <CardAgents />
-               <CardTransactions />
-            </Flex>
-         </Box>
-      </Flex>
+      {/* Left Section */}
+      <div className="mt-4 gap-2 flex flex-col xl:max-w-md w-full">
+        <h3 className="text-xl font-semibold">Section</h3>
+        <div className="flex flex-col justify-center gap-4 flex-wrap md:flex-nowrap md:flex-col">
+          <CardAgents />
+          <CardTransactions />
+        </div>
+      </div>
+    </div>
 
-      {/* Table Latest Users */}
-      <Flex
-         direction={'column'}
-         justify={'center'}
-         css={{
-            'width': '100%',
-            'py': '$10',
-            'px': '$10',
-            'mt': '$8',
-            '@sm': {px: '$20'},
-         }}
-      >
-         <Flex justify={'between'} wrap={'wrap'}>
-            <Text
-               h3
-               css={{
-                  'textAlign': 'center',
-                  '@lg': {
-                     textAlign: 'inherit',
-                  },
-               }}
-            >
-               Latest Users
-            </Text>
-            <NextLink href="/accounts">
-               <Link
-                  block
-                  color="primary"
-                  css={{
-                     'textAlign': 'center',
-                     '@lg': {
-                        textAlign: 'inherit',
-                     },
-                  }}
-               >
-                  View All
-               </Link>
-            </NextLink>
-         </Flex>
-         <TableWrapper />
-      </Flex>
-   </Box>
+    {/* Table Latest Users */}
+    <div className="flex flex-col justify-center w-full py-5 px-4 lg:px-0  max-w-[90rem] mx-auto gap-3">
+      <div className="flex  flex-wrap justify-between">
+        <h3 className="text-center text-xl font-semibold">Latest Users</h3>
+        <Link
+          href="/accounts"
+          as={NextLink}
+          color="primary"
+          className="cursor-pointer"
+        >
+          View All
+        </Link>
+      </div>
+      <TableWrapper />
+    </div>
+  </div>
 );
