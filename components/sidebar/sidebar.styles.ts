@@ -1,88 +1,51 @@
-import {styled} from '@nextui-org/react';
+import { tv } from "@nextui-org/react";
 
-export const SidebarWrapper = styled('div', {
-   'backgroundColor': '$background',
-   'transition': 'transform 0.2s ease',
-   'height': '100%',
-   'position': 'fixed',
-   'transform': 'translateX(-100%)',
-   'width': '16rem',
-   'flexShrink': 0,
-   'zIndex': '202',
-   'overflowY': 'auto',
-   '&::-webkit-scrollbar': {
-      display: 'none',
-   },
-   'borderRight': '1px solid $border',
-   'flexDirection': 'column',
-   'py': '$10',
-   'px': '$6',
-   '@md': {
-      marginLeft: '0',
-      display: 'flex',
-      position: 'static',
-      height: '100vh',
-      transform: 'translateX(0)',
-   },
-   'variants': {
-      collapsed: {
-         true: {
-            display: 'inherit',
-            marginLeft: '0 ',
-            transform: 'translateX(0)',
-         },
-      },
-   },
+export const SidebarWrapper = tv({
+  base: "bg-background transition-transform h-full fixed -translate-x-full w-64 shrink-0 z-[202] overflow-y-auto border-r border-divider flex-col py-6 px-3 md:ml-0 md:flex md:static md:h-screen md:translate-x-0 ",
+
+  variants: {
+    collapsed: {
+      true: "translate-x-0 ml-0 [display:inherit]",
+    },
+  },
+  // ""
+  //   "@md": {
+  //     marginLeft: "0",
+  //     display: "flex",
+  //     position: "static",
+  //     height: "100vh",
+  //     transform: "translateX(0)",
+  //   },
+  //   variants: {
+  //     collapsed: {
+  //       true: {
+  //         display: "inherit",
+  //         marginLeft: "0 ",
+  //         transform: "translateX(0)",
+  //       },
+  //     },
+  //   },
+});
+// 24px 12px
+export const Overlay = tv({
+  base: "bg-[rgb(15_23_42/0.3)] fixed inset-0 z-[201] opacity-80 transition-opacity md:hidden md:z-auto md:opacity-100",
 });
 
-export const Overlay = styled('div', {
-   'backgroundColor': 'rgb(15 23 42 / 0.3)',
-   'position': 'fixed',
-   'inset': 0,
-   'zIndex': '201',
-   'transition': 'opacity 0.3s ease',
-   'opacity': 0.8,
-   '@md': {
-      display: 'none',
-      zIndex: 'auto',
-      opacity: 1,
-   },
+export const Header = tv({
+  base: "flex gap-8 items-center px-6",
 });
 
-export const Header = styled('div', {
-   display: 'flex',
-   gap: '$8',
-   alignItems: 'center',
-   // 'justifyContent': 'center',
-   px: '$10',
+export const Body = tv({
+  base: "flex flex-col gap-6 mt-9 px-2",
 });
 
-export const Body = styled('div', {
-   display: 'flex',
-   flexDirection: 'column',
-   gap: '$10',
-   mt: '$13',
-   px: '$4',
-   // pt: '$4',
-});
-
-export const Footer = styled('div', {
-   'display': 'flex',
-   'alignItems': 'center',
-   'justifyContent': 'center',
-   'gap': '$12',
-   'pt': '$18',
-   'pb': '$8',
-   '@md': {
-      pt: 0,
-      pb: 0,
-   },
-   'px': '$8',
+export const Footer = tv({
+  base: "flex items-center justify-center gap-6 pt-16 pb-8 px-8 md:pt-10 md:pb-0",
 });
 
 export const Sidebar = Object.assign(SidebarWrapper, {
-   Header,
-   Body,
-   Overlay,
-   Footer,
+  Header,
+  Body,
+  Overlay,
+  Footer,
 });

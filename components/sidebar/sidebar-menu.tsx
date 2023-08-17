@@ -1,27 +1,15 @@
-import {Text} from '@nextui-org/react';
-import React from 'react';
-import {Flex} from '../styles/flex';
+import React from "react";
 
 interface Props {
-   title: string;
-   children?: React.ReactNode;
+  title: string;
+  children?: React.ReactNode;
 }
 
-export const SidebarMenu = ({title, children}: Props) => {
-   return (
-      <Flex css={{gap: '$4'}} direction={'column'}>
-         <Text
-            span
-            size={'$xs'}
-            weight={'normal'}
-            css={{
-               letterSpacing: '0.04em',
-               lineHeight: '$xs',
-            }}
-         >
-            {title}
-         </Text>
-         {children}
-      </Flex>
-   );
+export const SidebarMenu = ({ title, children }: Props) => {
+  return (
+    <div className="flex gap-2 flex-col">
+      <span className="text-xs font-normal ">{title}</span>
+      {children}
+    </div>
+  );
 };

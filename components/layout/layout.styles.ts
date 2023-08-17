@@ -1,5 +1,6 @@
-import {styled} from '@nextui-org/react';
+import { tv } from "@nextui-org/react";
 
-export const WrapperLayout = styled('div', {
-   display: 'flex',
+export const WrapperLayout = tv({
+  base: "flex",
+  //   display: "flex",
 });
