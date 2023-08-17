@@ -2,6 +2,8 @@
 
 You can deploy here directly to vercel [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/Siumauricio/nextui-dashboard-template)
 
+V2 Check https://github.com/Siumauricio/nextui-dashboard-template/tree/main
+
 This is a template for NextJS and NextUI. 
 
 [NextJS](https://nextjs.org/) 
