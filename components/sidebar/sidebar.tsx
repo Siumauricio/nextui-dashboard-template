@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { Box } from "../styles/box";
-import { Overlay, Sidebar } from "./sidebar.styles";
-import { Avatar, Button, PopoverTrigger, Tooltip } from "@nextui-org/react";
-import { Flex } from "../styles/flex";
+import React from "react";
+import { Sidebar } from "./sidebar.styles";
+import { Avatar, Tooltip } from "@nextui-org/react";
 import { CompaniesDropdown } from "./companies-dropdown";
 import { HomeIcon } from "../icons/sidebar/home-icon";
 import { PaymentsIcon } from "../icons/sidebar/payments-icon";

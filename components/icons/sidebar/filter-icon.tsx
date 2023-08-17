@@ -1,5 +1,4 @@
 import React from "react";
-import { Svg } from "../../styles/svg";
 
 export const FilterIcon = () => {
   return (

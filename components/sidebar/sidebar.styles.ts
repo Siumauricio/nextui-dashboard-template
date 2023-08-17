@@ -26,7 +26,6 @@ export const SidebarWrapper = tv({
   //     },
   //   },
 });
-// 24px 12px
 export const Overlay = tv({
   base: "bg-[rgb(15_23_42/0.3)] fixed inset-0 z-[201] opacity-80 transition-opacity md:hidden md:z-auto md:opacity-100",
 });

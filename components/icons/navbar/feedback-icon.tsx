@@ -1,5 +1,4 @@
 import React from "react";
-import { Svg } from "../../styles/svg";
 
 export const FeedbackIcon = () => {
   return (
@@ -9,11 +8,6 @@ export const FeedbackIcon = () => {
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      // css={{
-      //    '& path': {
-      //       fill: '$accents6',
-      //    },
-      // }}
     >
       <path
         className="fill-default-400"

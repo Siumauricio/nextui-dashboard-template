@@ -1,5 +1,4 @@
 import React from "react";
-import { Svg } from "../styles/svg";
 
 interface Props {
   color?: string;
@@ -13,12 +12,6 @@ export const Community = ({ color = "white" }: Props) => {
       height="24"
       viewBox="0 0 24 24"
       fill="none"
-      // css={{
-      //   cursor: "pointer",
-      //   "& path": {
-      //     fill: color,
-      //   },
-      // }}
     >
       <path
         className="fill-default-900"

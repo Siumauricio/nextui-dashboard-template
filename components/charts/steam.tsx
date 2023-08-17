@@ -1,5 +1,4 @@
 import React from "react";
-import { Box } from "../styles/box";
 import Chart, { Props } from "react-apexcharts";
 
 const state: Props["series"] = [

@@ -1,10 +1,6 @@
 import React from "react";
 
-interface Props {
-  className?: string;
-}
-
-export const SearchIcon = ({ className }: Props) => {
+export const SearchIcon = () => {
   return (
     <svg
       aria-hidden="true"

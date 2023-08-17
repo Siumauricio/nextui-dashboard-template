@@ -24,7 +24,6 @@ export const CompaniesDropdown = () => {
   });
   return (
     <Dropdown
-      // placement="bottom-start"
       classNames={{
         base: "w-full min-w-[260px]",
       }}
