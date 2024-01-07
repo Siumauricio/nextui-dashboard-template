@@ -13,7 +13,7 @@ import { AddUser } from "./add-user";
 
 export const Accounts = () => {
   return (
-    <div className="my-14 max-w-[95rem] mx-auto w-full flex flex-col gap-4">
+    <div className="my-14 lg:px-6 max-w-[95rem] mx-auto w-full flex flex-col gap-4">
       <ul className="flex">
         <li className="flex gap-2">
           <HouseIcon />
