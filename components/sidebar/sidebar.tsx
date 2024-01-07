@@ -18,7 +18,7 @@ import { SidebarMenu } from "./sidebar-menu";
 import { FilterIcon } from "../icons/sidebar/filter-icon";
 import { useSidebarContext } from "../layout/layout-context";
 import { ChangeLogIcon } from "../icons/sidebar/changelog-icon";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export const SidebarWrapper = () => {
   const router = useRouter();
