@@ -15,5 +15,4 @@ function MyApp({ Component, pageProps }: AppProps) {
     </NextThemesProvider>
   );
 }
-
 export default MyApp;
