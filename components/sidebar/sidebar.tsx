@@ -18,10 +18,10 @@ import { SidebarMenu } from "./sidebar-menu";
 import { FilterIcon } from "../icons/sidebar/filter-icon";
 import { useSidebarContext } from "../layout/layout-context";
 import { ChangeLogIcon } from "../icons/sidebar/changelog-icon";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 export const SidebarWrapper = () => {
-  const router = useRouter();
+  const pathname = usePathname();
   const { collapsed, setCollapsed } = useSidebarContext();
 
   return (
@@ -42,18 +42,18 @@ export const SidebarWrapper = () => {
             <SidebarItem
               title="Home"
               icon={<HomeIcon />}
-              isActive={router.pathname === "/"}
+              isActive={pathname === "/"}
               href="/"
             />
             <SidebarMenu title="Main Menu">
               <SidebarItem
-                isActive={router.pathname === "/accounts"}
+                isActive={pathname === "/accounts"}
                 title="Accounts"
                 icon={<AccountsIcon />}
                 href="accounts"
               />
               <SidebarItem
-                isActive={router.pathname === "/payments"}
+                isActive={pathname === "/payments"}
                 title="Payments"
                 icon={<PaymentsIcon />}
               />
@@ -63,17 +63,17 @@ export const SidebarWrapper = () => {
                 title="Balances"
               />
               <SidebarItem
-                isActive={router.pathname === "/customers"}
+                isActive={pathname === "/customers"}
                 title="Customers"
                 icon={<CustomersIcon />}
               />
               <SidebarItem
-                isActive={router.pathname === "/products"}
+                isActive={pathname === "/products"}
                 title="Products"
                 icon={<ProductsIcon />}
               />
               <SidebarItem
-                isActive={router.pathname === "/reports"}
+                isActive={pathname === "/reports"}
                 title="Reports"
                 icon={<ReportsIcon />}
               />
@@ -81,17 +81,17 @@ export const SidebarWrapper = () => {
 
             <SidebarMenu title="General">
               <SidebarItem
-                isActive={router.pathname === "/developers"}
+                isActive={pathname === "/developers"}
                 title="Developers"
                 icon={<DevIcon />}
               />
               <SidebarItem
-                isActive={router.pathname === "/view"}
+                isActive={pathname === "/view"}
                 title="View Test Data"
                 icon={<ViewIcon />}
               />
               <SidebarItem
-                isActive={router.pathname === "/settings"}
+                isActive={pathname === "/settings"}
                 title="Settings"
                 icon={<SettingsIcon />}
               />
@@ -99,7 +99,7 @@ export const SidebarWrapper = () => {
 
             <SidebarMenu title="Updates">
               <SidebarItem
-                isActive={router.pathname === "/changelog"}
+                isActive={pathname === "/changelog"}
                 title="Changelog"
                 icon={<ChangeLogIcon />}
               />

@@ -26,7 +26,6 @@ const options: Props["options"] = {
       enabled: false,
     },
     id: "basic-bar",
-    fontFamily: "Inter, sans-serif",
     foreColor: "hsl(var(--nextui-default-800))",
     stacked: true,
     toolbar: {
@@ -40,7 +39,6 @@ const options: Props["options"] = {
       // show: false,
       style: {
         colors: "hsl(var(--nextui-default-800))",
-        fontFamily: "Inter, sans-serif",
       },
     },
     axisBorder: {
@@ -55,7 +53,6 @@ const options: Props["options"] = {
       style: {
         // hsl(var(--nextui-content1-foreground))
         colors: "hsl(var(--nextui-default-800))",
-        fontFamily: "Inter, sans-serif",
       },
     },
   },
