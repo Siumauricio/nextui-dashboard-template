@@ -5,7 +5,7 @@ import { Community } from "../icons/community";
 export const CardBalance1 = () => {
   return (
     <Card className="xl:max-w-sm bg-primary rounded-xl shadow-md px-3 w-full">
-      <CardBody className="py-5">
+      <CardBody className="py-5 overflow-hidden">
         <div className="flex gap-2.5">
           <Community />
           <div className="flex flex-col">
