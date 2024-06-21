@@ -13,10 +13,10 @@ export const Register = () => {
   const router = useRouter();
 
   const initialValues: RegisterFormType = {
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    name: "Acme",
+    email: "admin@acme.com",
+    password: "admin",
+    confirmPassword: "admin",
   };
 
   const handleRegister = useCallback(

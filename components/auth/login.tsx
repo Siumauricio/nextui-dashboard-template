@@ -13,8 +13,8 @@ export const Login = () => {
   const router = useRouter();
 
   const initialValues: LoginFormType = {
-    email: "",
-    password: "",
+    email: "admin@acme.com",
+    password: "admin",
   };
 
   const handleLogin = useCallback(
