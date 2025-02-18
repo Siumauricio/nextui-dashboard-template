@@ -1,5 +1,7 @@
-import { Image } from "@nextui-org/react";
-import { Divider } from "@nextui-org/divider";
+"use client";
+
+import { Image } from "@heroui/react";
+import { Divider } from "@heroui/divider";
 
 interface Props {
   children: React.ReactNode;
