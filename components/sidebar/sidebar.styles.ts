@@ -1,7 +1,7 @@
-import { tv } from "@nextui-org/react";
+import { tv } from "@heroui/react";
 
 export const SidebarWrapper = tv({
-  base: "bg-background transition-transform h-full fixed -translate-x-full w-64 shrink-0 z-[202] overflow-y-auto border-r border-divider flex-col py-6 px-3 md:ml-0 md:flex md:static md:h-screen md:translate-x-0 ",
+  base: "bg-background transition-transform h-full fixed -translate-x-full w-64 shrink-0 z-202 overflow-y-auto border-r border-divider flex-col py-6 px-3 md:ml-0 md:flex md:static md:h-screen md:translate-x-0 ",
 
   variants: {
     collapsed: {
@@ -27,7 +27,7 @@ export const SidebarWrapper = tv({
   //   },
 });
 export const Overlay = tv({
-  base: "bg-[rgb(15_23_42/0.3)] fixed inset-0 z-[201] opacity-80 transition-opacity md:hidden md:z-auto md:opacity-100",
+  base: "bg-[rgb(15_23_42/0.3)] fixed inset-0 z-201 opacity-80 transition-opacity md:hidden md:z-auto md:opacity-100",
 });
 
 export const Header = tv({

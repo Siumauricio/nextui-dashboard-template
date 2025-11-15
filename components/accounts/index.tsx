@@ -1,5 +1,5 @@
 "use client";
-import { Button, Input } from "@nextui-org/react";
+import { Button, Input } from "@heroui/react";
 import Link from "next/link";
 import React from "react";
 import { DotsIcon } from "@/components/icons/accounts/dots-icon";

@@ -7,7 +7,7 @@ import { CardBalance2 } from "./card-balance2";
 import { CardBalance3 } from "./card-balance3";
 import { CardAgents } from "./card-agents";
 import { CardTransactions } from "./card-transactions";
-import { Link } from "@nextui-org/react";
+import { Link } from "@heroui/react";
 import NextLink from "next/link";
 
 const Chart = dynamic(

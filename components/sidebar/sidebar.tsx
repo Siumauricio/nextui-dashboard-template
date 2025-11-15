@@ -1,6 +1,6 @@
 import React from "react";
 import { Sidebar } from "./sidebar.styles";
-import { Avatar, Tooltip } from "@nextui-org/react";
+import { Avatar, Tooltip } from "@heroui/react";
 import { CompaniesDropdown } from "./companies-dropdown";
 import { HomeIcon } from "../icons/sidebar/home-icon";
 import { PaymentsIcon } from "../icons/sidebar/payments-icon";
@@ -25,7 +25,7 @@ export const SidebarWrapper = () => {
   const { collapsed, setCollapsed } = useSidebarContext();
 
   return (
-    <aside className="h-screen z-[20] sticky top-0">
+    <aside className="h-screen z-20 sticky top-0">
       {collapsed ? (
         <div className={Sidebar.Overlay()} onClick={setCollapsed} />
       ) : null}

@@ -5,7 +5,7 @@ import {
   DropdownSection,
   DropdownTrigger,
   NavbarItem,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import React from "react";
 import { NotificationIcon } from "../icons/navbar/notificationicon";
 

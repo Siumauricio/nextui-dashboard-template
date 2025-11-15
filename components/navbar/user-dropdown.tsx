@@ -6,7 +6,7 @@ import {
   DropdownTrigger,
   Navbar,
   NavbarItem,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import React, { useCallback } from "react";
 import { DarkModeSwitch } from "./darkmodeswitch";
 import { useRouter } from "next/navigation";

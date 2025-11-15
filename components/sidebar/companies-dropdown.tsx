@@ -5,7 +5,7 @@ import {
   DropdownMenu,
   DropdownSection,
   DropdownTrigger,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import React, { useState } from "react";
 import { AcmeIcon } from "../icons/acme-icon";
 import { AcmeLogo } from "../icons/acmelogo";

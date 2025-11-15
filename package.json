@@ -3,33 +3,37 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@nextui-org/react": "2.0.22",
-    "apexcharts": "^3.35.5",
-    "clsx": "^2.0.0",
-    "formik": "^2.4.6",
-    "framer-motion": "^10.16.0",
-    "next": "^14.0.4",
-    "next-themes": "0.2.1",
-    "react": "18.2.0",
-    "react-apexcharts": "^1.4.0",
-    "react-dom": "18.2.0",
-    "yup": "^1.4.0"
+    "@heroui/react": "2.8.5",
+    "apexcharts": "^5.3.6",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.24",
+    "next": "16.0.3",
+    "next-themes": "0.4.6",
+    "react": "19.2.0",
+    "react-apexcharts": "^1.8.0",
+    "react-dom": "19.2.0",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
-    "@types/node": "18.7.18",
-    "@types/react": "18.0.20",
-    "@types/react-dom": "18.0.6",
-    "autoprefixer": "^10.4.15",
-    "eslint": "8.23.1",
-    "eslint-config-next": "13.4.16",
-    "postcss": "^8.4.28",
-    "tailwindcss": "^3.3.3",
-    "typescript": "4.8.3"
+    "@tailwindcss/postcss": "^4.1.17",
+    "@types/node": "24.10.1",
+    "@types/react": "19.2.5",
+    "@types/react-dom": "19.2.3",
+    "autoprefixer": "^10.4.22",
+    "eslint": "9.39.1",
+    "eslint-config-next": "16.0.3",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.17",
+    "typescript": "5.9.3"
+  },
+  "overrides": {
+    "@types/react": "19.2.5",
+    "@types/react-dom": "19.2.3"
   }
 }
